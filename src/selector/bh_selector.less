@@ -1,0 +1,150 @@
+
+@bh_font_item: 16px;
+@bh_font_cell: 16px;
+@bh_line_color: #d2d2d2;
+@bh_normal_color: #303030;
+@bh_select_color: #f36533;
+@bh_border_line: 1px solid @bh_line_color;
+@bh_border_normal: 1px solid @bh_normal_color;
+@bh_border_select: 1px solid @bh_select_color;
+
+.bh_selector_border {
+  // 自行定义border样式
+  border-bottom: @bh_border_line;
+}
+
+.bh_normal {
+  color: @bh_normal_color;
+}
+
+.bh_select {
+  color: @bh_select_color;
+}
+
+.bh_hide {
+  display: none;
+}
+
+.bh_ellipsis{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+
+// 主题布局
+.bh_selector {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .bh_selector_border;
+  .bh_selector_line {
+    &:after {
+      content: '';
+      height: 50%;
+      width: 1px;
+      background: @bh_line_color;
+      position: absolute;
+      right: 0;
+      top: 25%;
+    }
+  }
+
+  .bh_selector_box {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: @bh_font_item;
+
+    * {
+      pointer-events: none;
+    }
+
+    .text {
+      max-width: 78%;
+      text-align: center;
+      .bh_ellipsis;
+    }
+
+    .triangle {
+      display: inline-block;
+      margin: 8px;
+      width: 8px;
+      height: 8px;
+      transition: all 0.3s;
+    }
+    .down {
+      transform: rotate(45deg);
+      border-right: @bh_border_normal;
+      border-bottom: @bh_border_normal;
+    }
+    .up {
+      transform: rotate(225deg);
+      border-right: @bh_border_select;
+      border-bottom: @bh_border_select;
+    }
+  }
+}
+
+.bh_selector_shadow {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.1;
+  position: fixed;
+  transition: all 0.3s;
+  z-index: 9998;
+}
+
+.bh_selector_table {
+  width: 0;
+  height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;  // 滚动回弹
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-height: 50%;
+  z-index: 9999;
+
+  .cell {
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    font-size: @bh_font_cell;
+    border-bottom: @bh_border_line;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .bh_ellipsis;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    li {
+      max-width: 90%;
+    }
+  }
+}
+
+

@@ -1,0 +1,122 @@
+.bh_selector_border {
+  border-bottom: 1px solid #d2d2d2;
+}
+.bh_normal {
+  color: #303030;
+}
+.bh_select {
+  color: #f36533;
+}
+.bh_hide {
+  display: none;
+}
+.bh_ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bh_selector {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #d2d2d2;
+}
+.bh_selector .bh_selector_line:after {
+  content: '';
+  height: 50%;
+  width: 1px;
+  background: #d2d2d2;
+  position: absolute;
+  right: 0;
+  top: 25%;
+}
+.bh_selector .bh_selector_box {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+.bh_selector .bh_selector_box * {
+  pointer-events: none;
+}
+.bh_selector .bh_selector_box .text {
+  max-width: 78%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bh_selector .bh_selector_box .triangle {
+  display: inline-block;
+  margin: 8px;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s;
+}
+.bh_selector .bh_selector_box .down {
+  transform: rotate(45deg);
+  border-right: 1px solid #303030;
+  border-bottom: 1px solid #303030;
+}
+.bh_selector .bh_selector_box .up {
+  transform: rotate(225deg);
+  border-right: 1px solid #f36533;
+  border-bottom: 1px solid #f36533;
+}
+.bh_selector_shadow {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.1;
+  position: fixed;
+  transition: all 0.3s;
+  z-index: 9998;
+}
+.bh_selector_table {
+  width: 0;
+  height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-height: 50%;
+  z-index: 9999;
+}
+.bh_selector_table .cell {
+  width: 100%;
+  background: #fff;
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 1px solid #d2d2d2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bh_selector_table .cell:last-child {
+  border-bottom: none;
+}
+.bh_selector_table ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.bh_selector_table ul li {
+  max-width: 90%;
+}
