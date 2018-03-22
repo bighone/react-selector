@@ -217,11 +217,19 @@ class BHSelector extends Component {
 
         if (t.datas && t.datas.length > 0) {
             let info = t.datas[t.sindex];
+            if (!info) {
+                t.sindex = 0;
+                info = t.datas[t.sindex];
+            }
             t.nextItem.datas = info.datas;
         }
 
         if (t.nextItem.datas && t.nextItem.datas.length > 0) {
             let curInfo = t.nextItem.datas[t.nextItem.sindex];
+            if (!curInfo) {
+                t.nextItem.sindex = 0;
+                curInfo = t.nextItem.datas[t.nextItem.sindex];
+            }
             t.nextItem.text = curInfo.text;
         } else {
             t.nextItem.text = '';
